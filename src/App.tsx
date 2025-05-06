@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import translations from './translations';
 import ProjectBoard from './components/ProjectBoard';
+import TopBar from './components/TopBar';
 
 function App() {
   const [lang, setLang] = useState<'en' | 'es' | 'fr'>('en');
@@ -41,17 +42,27 @@ function App() {
   if (showTaskBoard) {
     return (
       <div className="bg-slate-50 dark:bg-[#181a20] min-h-screen flex flex-col transition-colors">
-        <LanguageSwitcher current={lang} onChange={setLang} />
-        <ProjectBoard t={{ ...t.projectBoard, taskBoard: t.taskBoard }} onBack={() => setShowTaskBoard(false)} />
-        <DarkModeButton />
+        <TopBar
+          onHome={() => setShowTaskBoard(false)}
+          darkMode={darkMode}
+          onToggleDark={() => setDarkMode(d => !d)}
+          lang={lang}
+          onLangChange={setLang}
+        />
+        <ProjectBoard t={{ ...t.projectBoard, taskBoard: t.taskBoard }} />
       </div>
     );
   }
 
   return (
     <div className="bg-white dark:bg-[#181a20] min-h-screen flex flex-col transition-colors">
-      <LanguageSwitcher current={lang} onChange={setLang} />
-      <DarkModeButton />
+      <TopBar
+        onHome={() => setShowTaskBoard(true)}
+        darkMode={darkMode}
+        onToggleDark={() => setDarkMode(d => !d)}
+        lang={lang}
+        onLangChange={setLang}
+      />
       <Hero t={t.hero} onStart={() => setShowTaskBoard(true)} />
       <Features t={t.features} />
       <HowItWorks t={t.howItWorks} />

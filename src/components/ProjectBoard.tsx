@@ -92,9 +92,9 @@ const ProjectBoard: React.FC<ProjectBoardProps> = ({ t, onBack }) => {
   };
 
   return (
-    <div className="flex min-h-screen bg-slate-50 dark:bg-slate-900">
+    <div className="flex flex-col md:flex-row min-h-screen bg-slate-50 dark:bg-slate-900 w-full">
       {/* Sidebar */}
-      <aside className="w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 p-4 flex flex-col">
+      <aside className="w-full md:w-64 bg-white dark:bg-slate-800 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700 p-4 flex flex-col shrink-0">
         <h2 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">{t.title}</h2>
         <div className="flex-1 space-y-2 overflow-y-auto">
           {projects.length === 0 && <div className="text-gray-400 dark:text-gray-500">{t.noProjects}</div>}
@@ -123,10 +123,10 @@ const ProjectBoard: React.FC<ProjectBoardProps> = ({ t, onBack }) => {
         </button>
       </aside>
       {/* Main Area */}
-      <main className="flex-1 p-8 flex flex-col items-center justify-center relative">
+      <main className="flex-1 w-full p-2 sm:p-4 md:p-8 flex flex-col items-center justify-center relative min-w-0">
         {onBack && (
           <button
-            className="absolute left-0 top-0 ml-2 mt-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow px-3 py-2 text-xl font-bold text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-700 transition focus:outline-none"
+            className="absolute left-2 top-2 md:left-0 md:top-0 md:ml-2 md:mt-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow px-3 py-2 text-xl font-bold text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-700 transition focus:outline-none"
             onClick={onBack}
             aria-label="Back to landing"
           >
@@ -134,7 +134,7 @@ const ProjectBoard: React.FC<ProjectBoardProps> = ({ t, onBack }) => {
           </button>
         )}
         {showForm ? (
-          <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-slate-900/50 p-8 w-full max-w-lg space-y-4">
+          <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-slate-900/50 p-2 sm:p-4 md:p-8 w-full max-w-lg space-y-4">
             <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{t.form.title}</h2>
             <input
               name="name"
@@ -151,7 +151,7 @@ const ProjectBoard: React.FC<ProjectBoardProps> = ({ t, onBack }) => {
               placeholder={t.form.description}
               className="border dark:border-slate-600 rounded px-3 py-2 w-full bg-white dark:bg-slate-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
             />
-            <div className="flex gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 w-full">
               <input
                 type="date"
                 name="startDate"
