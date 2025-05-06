@@ -3,7 +3,6 @@ import Hero from './components/Hero';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
 import Footer from './components/Footer';
-import LanguageSwitcher from './components/LanguageSwitcher';
 import translations from './translations';
 import ProjectBoard from './components/ProjectBoard';
 import TopBar from './components/TopBar';
@@ -23,21 +22,6 @@ function App() {
       html.classList.remove('dark');
     }
   }, [darkMode]);
-
-  const DarkModeButton = () => (
-    <button
-      className="fixed bottom-4 right-4 z-50 bg-white/80 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow px-4 py-2 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-700 transition flex items-center gap-2"
-      onClick={() => setDarkMode(d => !d)}
-      aria-label="Toggle dark mode"
-    >
-      {darkMode ? (
-        <span role="img" aria-label="Light">🌞</span>
-      ) : (
-        <span role="img" aria-label="Dark">🌙</span>
-      )}
-      {darkMode ? 'Light' : 'Dark'}
-    </button>
-  );
 
   if (showTaskBoard) {
     return (
