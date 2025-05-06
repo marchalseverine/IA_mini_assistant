@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
-import TechStack from './components/TechStack';
 import Footer from './components/Footer';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import translations from './translations';
