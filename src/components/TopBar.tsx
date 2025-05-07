@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 interface TopBarProps {
   onHome: () => void;
@@ -17,6 +18,7 @@ const flags = {
 const TopBar: React.FC<TopBarProps> = ({ onHome, darkMode, onToggleDark, lang, onLangChange }) => {
   const [langOpen, setLangOpen] = React.useState(false);
   const langRef = React.useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   React.useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -30,14 +32,16 @@ const TopBar: React.FC<TopBarProps> = ({ onHome, darkMode, onToggleDark, lang, o
 
   return (
     <div className="fixed top-4 right-4 z-50 flex flex-row gap-2 sm:gap-3 items-center">
-      {/* Home button */}
-      <button
-        onClick={onHome}
-        aria-label="Go to landing page"
-        className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-full shadow-md border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none transition"
-      >
-        <span role="img" aria-label="Home" className="text-2xl">🏠</span>
-      </button>
+      {/* Home button: show on all pages except home */}
+      {location.pathname !== '/' && (
+        <button
+          onClick={onHome}
+          aria-label="Go to landing page"
+          className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-full shadow-md border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none transition"
+        >
+          <span role="img" aria-label="Home" className="text-2xl">🏠</span>
+        </button>
+      )}
       {/* Dark mode toggle */}
       <button
         onClick={onToggleDark}

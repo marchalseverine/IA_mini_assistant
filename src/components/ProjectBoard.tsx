@@ -95,7 +95,7 @@ const ProjectBoard: React.FC<ProjectBoardProps> = ({ t, onBack }) => {
     <div className="flex flex-col md:flex-row min-h-screen bg-slate-50 dark:bg-slate-900 w-full">
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-white dark:bg-slate-800 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700 p-4 flex flex-col shrink-0">
-        <h2 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">{t.title}</h2>
+        <h2 className="text-lg font-bold mb-4 text-gray-900 dark:text-white text-center">{t.title}</h2>
         <div className="flex-1 space-y-2 overflow-y-auto">
           {projects.length === 0 && <div className="text-gray-400 dark:text-gray-500">{t.noProjects}</div>}
           {projects.map(project => (
@@ -135,7 +135,7 @@ const ProjectBoard: React.FC<ProjectBoardProps> = ({ t, onBack }) => {
         )}
         {showForm ? (
           <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-slate-900/50 p-2 sm:p-4 md:p-8 w-full max-w-lg space-y-4">
-            <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{t.form.title}</h2>
+            <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white text-center">{t.form.title}</h2>
             <input
               name="name"
               value={form.name}

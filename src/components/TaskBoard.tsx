@@ -66,7 +66,7 @@ const TaskBoard: React.FC<TaskBoardProps> = ({ projectId, t }) => {
 
   return (
     <div className="max-w-3xl mx-auto my-10 p-4 bg-white dark:bg-slate-800 rounded-xl shadow dark:shadow-slate-900/50">
-      <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">{t.title}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white text-center">{t.title}</h2>
       <form onSubmit={handleSubmit} className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
         <input
           name="title"
